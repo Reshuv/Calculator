@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .main-div{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            background-color: rgb(215, 253, 215);
+            
+        }
+        .container{
+            
+            box-shadow: 0px 0px 80px rgb(165, 165, 165);
+            height: 350px;
+            width: 230px;
+            padding: 20px;
+            border-radius: 20px;
+            padding: 20px;
+            background-color: rgb(35, 35, 35);
+        }
+        input{
+            height: 40px;
+            width: 40px;
+            margin: 4px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(0, 71, 113);
+            color: white;
+            font-size: 19px;
+            font-family: Arial;
+            box-shadow: 0px 0px 2px white;
+        }
+        .eq{
+            width: 88px;
+            margin-left: 8px;
+        }
+        .op{
+            background-color: transparent;
+            border: none;
+            outline: none;
+            box-shadow: 0px 0px 2px grey;
+            width: 80%;
+            text-align: right;
+            margin-bottom: 15px;
+            margin-top: 20px;
+            box-shadow: 0px 0px 10px gray;
+            
+        }
+        .eq,.opr{
+            background-color: goldenrod;
+        }
+        .ip{
+            margin-top: 8px;
+        }
+        .clr{
+            background-color: rgb(93, 93, 93);
+            
+        }
+        input:hover{
+            background-color: azure;
+            color: black;
+        }
+        .opr:hover{
+            background-color: red;
+            color: azure;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-div">
+    	<div class="container" align="center">
+    		<div>
+    			<input type="text" name="op" class="op">
+    		</div>
+    		<div>
+    			<input type="button" value="C" onclick="clearInput()">
+    			<input type="button" value="AC" onclick="clearAll()">
+    			<input type="button" value="/" onclick="appendValue('/')">
+    			<input type="button" value="%" onclick="appendValue('%')" class="opr">
+    		</div>
+
+    		<div>
+    			<input type="button" value="9" onclick="appendValue('9')">
+    			<input type="button" value="8" onclick="appendValue('8')">
+    			<input type="button" value="7" onclick="appendValue('7')">
+    			<input type="button" value="+" onclick="appendValue('+')" class="opr">
+    		</div>
+
+    		<div>
+    			<input type="button" value="6" onclick="appendValue('6')">
+    			<input type="button" value="5" onclick="appendValue('5')">
+    			<input type="button" value="4" onclick="appendValue('4')">
+    			<input type="button" value="-" onclick="appendValue('-')" class="opr">
+    		</div>
+    		
+    		<div>
+    			<input type="button" value="3" onclick="appendValue('3')">
+    			<input type="button" value="2" onclick="appendValue('2')">
+    			<input type="button" value="1" onclick="appendValue('1')">
+    			<input type="button" value="*" onclick="appendValue('*')" class="opr">
+    		</div>
+
+    		<div>
+    			<input type="button" value="0" onclick="appendValue('0')">
+    			<input type="button" value="." onclick="appendValue('.')">
+    			<input type="button" class="eq" value="=" onclick="calculate()" class="opr" />
+    		</div>
+    	</div>
+    </div>
+
+    <script>
+		function clearInput() {
+			document.getElementsByName('op')[0].value = '';
+		}
+
+		function clearAll() {
+			document.getElementsByName('op')[0].value = '';
+		}
+
+		function appendValue(value) {
+			document.getElementsByName('op')[0].value += value;
+		}
+
+		function calculate() {
+			document.getElementsByName('op')[0].value = eval(document.getElementsByName('op')[0].value);
+		}
+	</script>
+</body>
+</html>
